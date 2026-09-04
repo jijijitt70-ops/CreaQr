@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>QR Fácil - Generador de códigos QR gratis</title>
+
+  <meta
+    name="description"
+    content="Genera códigos QR gratis online. Crea QR para enlaces, textos, teléfonos, emails y WiFi. Descarga tu código QR en PNG."
+  >
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Librería para generar QR -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+    defer>
+  </script>
+
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container header-content">
+      <a href="#" class="logo">
+        <span class="logo-icon">▦</span>
+        QR Fácil
+      </a>
+
+      <nav>
+        <a href="#generador">Generador</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-content">
+
+        <div class="hero-text">
+          <span class="badge">✓ 100% GRATIS</span>
+
+          <h1>
+            Generador de códigos QR
+            <span>rápido y sencillo</span>
+          </h1>
+
+          <p>
+            Crea tu código QR gratis en segundos. Introduce un enlace,
+            texto, teléfono, email o información de WiFi y descárgalo.
+          </p>
+
+          <a href="#generador" class="hero-button">
+            Crear mi QR →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- GENERADOR -->
+    <section id="generador" class="generator-section">
+
+      <div class="container">
+
+        <div class="section-title">
+          <span class="small-title">GENERADOR QR</span>
+          <h2>Crea tu código QR</h2>
+          <p>
+            Personaliza tu código y descárgalo gratis.
+          </p>
+        </div>
+
+
+        <div class="generator-card">
+
+          <!-- PANEL IZQUIERDO -->
+          <div class="controls">
+
+            <div class="input-group">
+
+              <label>Tipo de contenido</label>
+
+              <div class="type-buttons">
+
+                <button class="type-btn active" data-type="url">
+                  🔗 Enlace
+                </button>
+
+                <button class="type-btn" data-type="text">
+                  📝 Texto
+                </button>
+
+                <button class="type-btn" data-type="phone">
+                  📞 Teléfono
+                </button>
+
+                <button class="type-btn" data-type="email">
+                  📧 Email
+                </button>
+
+                <button class="type-btn" data-type="wifi">
+                  📶 WiFi
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <!-- URL -->
+            <div class="input-group content-input" id="url-input">
+
+              <label for="url">
+                URL
+              </label>
+
+              <input
+                type="url"
+                id="url"
+                placeholder="https://ejemplo.com"
+                autocomplete="off"
+              >
+
+            </div>
+
+
+            <!-- TEXTO -->
+            <div
+              class="input-group content-input hidden"
+              id="text-input">
+
+              <label for="text">
+                Texto
+              </label>
+
+              <textarea
+                id="text"
+                rows="5"
+                placeholder="Escribe aquí tu texto..."
+              ></textarea>
+
+            </div>
+
+
+            <!-- TELEFONO -->
+            <div
+              class="input-group content-input hidden"
+              id="phone-input">
+
+              <label for="phone">
+                Número de teléfono
+              </label>
+
+              <input
+                type="tel"
+                id="phone"
+                placeholder="+34 600 000 000"
+              >
+
+            </div>
+
+
+            <!-- EMAIL -->
+            <div
+              class="input-group content-input hidden"
+              id="email-input">
+
+              <label for="email">
+                Dirección de email
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                placeholder="ejemplo@email.com"
+              >
+
+            </div>
+
+
+            <!-- WIFI -->
+            <div
+              class="wifi-fields hidden"
+              id="wifi-input">
+
+              <div class="input-group">
+
+                <label for="wifi-name">
+                  Nombre de la red
+                </label>
+
+                <input
+                  type="text"
+                  id="wifi-name"
+                  placeholder="Mi WiFi"
+                >
+
+              </div>
+
+              <div class="input-group">
+
+                <label for="wifi-password">
+                  Contraseña
+                </label>
+
+                <input
+                  type="text"
+                  id="wifi-password"
+                  placeholder="Contraseña WiFi"
+                >
+
+              </div>
+
+              <div class="input-group">
+
+                <label for="wifi-security">
+                  Seguridad
+                </label>
+
+                <select id="wifi-security">
+                  <option value="WPA">WPA/WPA2</option>
+                  <option value="WEP">WEP</option>
+                  <option value="nopass">Sin contraseña</option>
+                </select>
+
+              </div>
+
+            </div>
+
+
+            <!-- PERSONALIZACIÓN -->
+
+            <div class="customization">
+
+              <h3>Personalización</h3>
+
+              <div class="color-row">
+
+                <div>
+                  <label for="qr-color">
+                    Color del QR
+                  </label>
+
+                  <div class="color-control">
+                    <input
+                      type="color"
+                      id="qr-color"
+                      value="#111827"
+                    >
+
+                    <span id="qr-color-value">
+                      #111827
+                    </span>
+                  </div>
+                </div>
+
+
+                <div>
+                  <label for="bg-color">
+                    Fondo
+                  </label>
+
+                  <div class="color-control">
+
+                    <input
+                      type="color"
+                      id="bg-color"
+                      value="#ffffff"
+                    >
+
+                    <span id="bg-color-value">
+                      #FFFFFF
+                    </span>
+
+                  </div>
+                </div>
+
+              </div>
+
+
+              <div class="input-group size-group">
+
+                <label for="qr-size">
+                  Tamaño
+                </label>
+
+                <div class="range-wrapper">
+
+                  <input
+                    type="range"
+                    id="qr-size"
+                    min="150"
+                    max="500"
+                    value="300"
+                  >
+
+                  <span id="size-value">
+                    300px
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <button id="generate-btn" class="generate-button">
+              Generar código QR
+            </button>
+
+          </div>
+
+
+          <!-- PANEL DERECHO -->
+          <div class="preview">
+
+            <div class="preview-title">
+              <h3>Vista previa</h3>
+              <span id="status">Listo para generar</span>
+            </div>
+
+            <div
+              id="qr-container"
+              class="qr-container"
+            >
+              <div class="qr-placeholder">
+                <div class="placeholder-icon">▦</div>
+                <p>Tu código QR aparecerá aquí</p>
+              </div>
+            </div>
+
+            <button
+              id="download-btn"
+              class="download-button"
+              disabled
+            >
+              ⬇ Descargar QR
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- BENEFICIOS -->
+    <section class="benefits">
+
+      <div class="container">
+
+        <div class="benefits-grid">
+
+          <div class="benefit">
+            <div class="benefit-icon">⚡</div>
+            <h3>Rápido</h3>
+            <p>
+              Genera tu código QR en cuestión de segundos.
+            </p>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-icon">🔒</div>
+            <h3>Privado</h3>
+            <p>
+              Tu contenido se procesa directamente en tu navegador.
+            </p>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-icon">📱</div>
+            <h3>Para cualquier dispositivo</h3>
+            <p>
+              Utilízalo desde móvil, tablet u ordenador.
+            </p>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-icon">💾</div>
+            <h3>Descarga gratis</h3>
+            <p>
+              Guarda tu código QR como imagen PNG.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona" class="info-section">
+
+      <div class="container">
+
+        <div class="section-title">
+          <span class="small-title">FÁCIL DE USAR</span>
+          <h2>¿Cómo crear un código QR?</h2>
+        </div>
+
+
+        <div class="steps">
+
+          <div class="step">
+            <div class="step-number">1</div>
+
+            <h3>Elige el tipo</h3>
+
+            <p>
+              Selecciona si quieres crear un QR para un enlace,
+              texto, teléfono, email o WiFi.
+            </p>
+          </div>
+
+
+          <div class="step">
+            <div class="step-number">2</div>
+
+            <h3>Introduce la información</h3>
+
+            <p>
+              Escribe la información que quieres convertir
+              en código QR.
+            </p>
+          </div>
+
+
+          <div class="step">
+            <div class="step-number">3</div>
+
+            <h3>Descarga tu QR</h3>
+
+            <p>
+              Genera el código y descárgalo como imagen PNG.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FAQ -->
+    <section id="faq" class="faq-section">
+
+      <div class="container">
+
+        <div class="section-title">
+          <span class="small-title">PREGUNTAS FRECUENTES</span>
+          <h2>Preguntas sobre los códigos QR</h2>
+        </div>
+
+
+        <div class="faq-list">
+
+          <details>
+            <summary>
+              ¿Qué es un código QR?
+            </summary>
+
+            <p>
+              Un código QR es un código que puede almacenar información
+              y que puede ser leído rápidamente utilizando la cámara
+              de un teléfono móvil.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>
+              ¿Puedo crear un código QR gratis?
+            </summary>
+
+            <p>
+              Sí. QR Fácil permite generar códigos QR sin necesidad
+              de pagar ni crear una cuenta.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>
+              ¿Qué información puedo poner en un QR?
+            </summary>
+
+            <p>
+              Puedes crear códigos QR para enlaces, textos,
+              números de teléfono, direcciones de email e información
+              de redes WiFi.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>
+              ¿Dónde se guarda mi información?
+            </summary>
+
+            <p>
+              La generación del código se realiza en tu navegador.
+              No necesitas enviar el contenido a un servidor para
+              crear el código QR.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>
+              ¿Puedo descargar el código QR?
+            </summary>
+
+            <p>
+              Sí. Después de generarlo puedes descargarlo como
+              una imagen PNG.
+            </p>
+          </details>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="container footer-content">
+
+      <div>
+        <div class="logo footer-logo">
+          <span class="logo-icon">▦</span>
+          QR Fácil
+        </div>
+
+        <p>
+          Generador de códigos QR gratuito y sencillo.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#generador">Generador</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#faq">Preguntas frecuentes</a>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 QR Fácil. Todos los derechos reservados.
+    </div>
+
+  </footer>
+
+</body>
+</html>
